@@ -25,7 +25,7 @@ function ImageSlideshow() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const randomIndex = (Math.floor(Math.random() * photos.length) + 1);
+      const randomIndex = (Math.floor(Math.random() * photos.length) );
       console.log(randomIndex)
 
      setCurrentPhotoIndex(randomIndex);

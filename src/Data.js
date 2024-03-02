@@ -15,4 +15,30 @@ const photos = [
     "https://i.ibb.co/Q64YHSg/Mr-Rohan-Kadam-2.webp" ,
  ];
 
- export {photos}
+ const projectImages =[
+"https://i.ibb.co/R3wrxmg/Mr-Mrs-Deepali-Joshi-Ambavane-Kop.webp" ,
+"https://i.ibb.co/XsZJJ2n/Mr-Amit-Chavan-01.webp",
+"https://i.ibb.co/WgZ9bn4/Mr-Amit-Chavan-02.webp" ,
+"https://i.ibb.co/3Npmjmx/Mr-Arun-Patil-Kop1.webp" ,
+"https://i.ibb.co/WnQzKHR/Mr-Arun-Patil-Kop2.webp",
+"https://i.ibb.co/4MKPHmz/Mr-Arun-Patil-Kop3.webp" ,
+"https://i.ibb.co/nnjvtJV/Mr-Chetan-Desai.webp" ,
+"https://i.ibb.co/s20v88r/Mr-Ganesh-Sawant-Bhor-Pune.webp",
+"https://i.ibb.co/kQzXsbY/Mr-L-M-Kumbhar-Kop1.webp" ,
+"https://i.ibb.co/ZJmht0s/Mr-L-M-Kumbhar-Kop2.webp",
+"https://i.ibb.co/GHg6Vmd/Mr-Rohan-Kadam-1-jpeg.webp" ,
+"https://i.ibb.co/DfWrXg0/Mr-Rohan-Kadam-2-jpeg.webp",
+"https://i.ibb.co/hLF4LNX/Mr-Rohan-Kadam-3-jpeg.webp" ,
+"https://i.ibb.co/DzcPCfV/Mr-Rohan-Kadam-4.webp" ,
+"https://i.ibb.co/yqZNpFJ/Mr-Sanjay-Sawant-Kudal-Sindhudurg01.webp" ,
+"https://i.ibb.co/0DVcpNP/Mr-Sanjay-Sawant-Kudal-Sindhudurg2.webp" ,
+"https://i.ibb.co/QJH7kqX/Mr-Sarjoshi-Achara-Malvan1.webp",
+"https://i.ibb.co/Z6PypnH/Mr-Sarjoshi-Achara-Malvan2.webp",
+"https://i.ibb.co/zH2XpN8/Mr-Vikas-Mane-Islampur1.webp",
+"https://i.ibb.co/pdC1DJr/Mr-Vikas-Mane-Islampur2.webp" ,
+"https://i.ibb.co/KzGdxTQ/Ray-Associates-Kop.webp" ,
+"https://i.ibb.co/42QBSFP/Shree-Mouni-Maharaj-Math-Patgaon1.webp" ,
+"https://i.ibb.co/m8ft40R/Shree-Mouni-Maharaj-Math-Patgaon2.webp",
+ ];
+
+ export {photos, projectImages}

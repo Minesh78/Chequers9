@@ -41,4 +41,70 @@ const photos = [
 "https://i.ibb.co/m8ft40R/Shree-Mouni-Maharaj-Math-Patgaon2.webp",
  ];
 
- export {photos, projectImages}
+
+ const architecturalProjects = [
+    {
+        id:"01",
+        title:"Project for Deepali Joshi",
+        location:"Kolhapur",
+        imageLink:"https://i.ibb.co/R3wrxmg/Mr-Mrs-Deepali-Joshi-Ambavane-Kop.webp"
+    },
+    {
+        id:"02",
+        title:"Project for Mr. Amit Chavan",
+        location:"-",
+        imageLink:"https://i.ibb.co/XsZJJ2n/Mr-Amit-Chavan-01.webp"
+    },
+    {
+        id:"03",
+        title:"Project for Mr. Arun Patil",
+        location:"Kolhapur",
+        imageLink:"https://i.ibb.co/3Npmjmx/Mr-Arun-Patil-Kop2.webp"
+    },
+    {
+        id:"04",
+        title:"Project for Mr. Ganesh Sawant",
+        location:"Bhar, Pune",
+        imageLink:"https://i.ibb.co/s20v88r/Mr-Ganesh-Sawant-Bhor-Pune.webp"
+    },
+    {
+        id:"05",
+        title:"Project for Mr. L M Kumbhar",
+        location:"Kolhapur",
+        imageLink:"https://i.ibb.co/kQzXsbY/Mr-L-M-Kumbhar-Kop1.webp"
+    },
+    {
+        id:"06",
+        title:"Project for Mr. Sanjay Sawant",
+        location:"kudal, Sindhudurg",
+        imageLink:"https://i.ibb.co/yqZNpFJ/Mr-Sanjay-Sawant-Kudal-Sindhudurg01.webp" 
+    }, 
+    {
+        id:"07",
+        title:"Project for Mr. Sarjoshi",
+        location:"Achara, Malvan",
+        imageLink:"https://i.ibb.co/QJH7kqX/Mr-Sarjoshi-Achara-Malvan1.webp",
+    },
+    {
+        id:"08",
+        title:"Project for Mr. Vikas Mane",
+        location:"Islampur",
+        imageLink:"https://i.ibb.co/zH2XpN8/Mr-Vikas-Mane-Islampur1.webp"
+    },{
+        id:"09",
+        title:"Shree Mouni Maharaj Math",
+        location:"Patgaon",
+        imageLink:"https://i.ibb.co/42QBSFP/Shree-Mouni-Maharaj-Math-Patgaon1.webp"
+    }
+ ]
+
+ const interiorDesignProjects = [
+    {
+        id:"11",
+        title:"Project for Mr. Rohan Kadam",
+        location:"-",
+        imageLink:"https://i.ibb.co/GHg6Vmd/Mr-Rohan-Kadam-1-jpeg.webp"
+    },
+ ]
+
+ export {photos, projectImages, architecturalProjects};

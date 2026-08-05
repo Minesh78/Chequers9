@@ -1,29 +1,24 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import ResponsiveImage from "./ResponsiveImage";
+import Reveal from "./Reveal";
+import { projectTypeLabels } from "../content/projects";
 
-function ProjectCard(props) {
-	return (
-		<>
-			<div key={props.id} className=" m-auto flex flex-col ">
-				<div class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-xl bg-clip-border rounded-xl w-96">
-					<div class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
-						<img
-							className="object-fit absolute scale-[1.30]"
-							src={props.imageLink}
-							alt="card-image"
-						/>
-					</div>
-					<div class="p-6">
-						<h5 class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-							{props.title}
-						</h5>
-						<p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-							{props.location}
-						</p>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+export default function ProjectCard({ project, priority = false, index }) {
+  return (
+    <article className="project-card">
+      <Link to={`/projects/${project.id}/${project.slug}`} aria-label={`View ${project.title}`}>
+        <Reveal className="project-card-image">
+          <ResponsiveImage image={project.cover} eager={priority} sizes="(max-width: 767px) 94vw, 46vw" />
+        </Reveal>
+        <div className="project-card-meta">
+          <span className="project-index">{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <h3>{project.title}</h3>
+            <p>{[project.location, projectTypeLabels[project.type]].filter(Boolean).join(" · ")}</p>
+          </div>
+          <span className="arrow" aria-hidden="true">↗</span>
+        </div>
+      </Link>
+    </article>
+  );
 }
-
-export default ProjectCard;

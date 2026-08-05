@@ -1,76 +1,41 @@
-import React, { useState } from "react";
-import { architecturalProjects } from "../Data";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import ProjectCard from "../Components/ProjectCard";
+import CTA from "../Components/CTA";
+import SEO from "../Components/SEO";
+import { projects } from "../content/projects";
 
-function Projects() {
-	const [filter, setFilter] = useState([]);
+const filters = [
+  { id: "all", label: "All projects" },
+  { id: "architecture", label: "Architecture" },
+  { id: "interior", label: "Interiors" },
+];
 
-	const handleFilterChange = (type) => {
-		if (filter.includes(type)) {
-			setFilter(filter.filter((t) => t !== type));
-		} else {
-			setFilter([...filter, type]);
-		}
-	};
+export default function Projects() {
+  const [filter, setFilter] = useState("all");
+  const visibleProjects = filter === "all" ? projects : projects.filter((project) => project.type === filter);
 
-	const filteredItems = filter.length
-		? architecturalProjects.filter((project) => filter.includes(project.type))
-		: architecturalProjects;
-
-	return (
-		<>
-			<div className="mt-[7rem] flex justify-center w-[25%] mx-auto">
-				<div
-					className={`w-[50%] py-2 text-center border border-gray-600 rounded-s-full cursor-pointer ${
-						filter.includes("architectural")
-							? "focus: bg-[#777B7E] focus: text-yellow-300"
-							: ""
-					}`}
-					onClick={() => handleFilterChange("architectural")}>
-					Architectural
-				</div>
-				<div
-					className={`w-[50%] py-2 text-center border border-gray-600 rounded-e-full cursor-pointer ${
-						filter.includes("interior")
-							? "focus: bg-[#777B7E] focus: text-yellow-300"
-							: ""
-					}`}
-					onClick={() => handleFilterChange("interior")}>
-					Interior
-				</div>
-
-			
-			</div>
-			<div className="flex w-[90%] m-auto  mt-28 flex-col justify-center items-center md:grid-cols-2 md:grid  gap-8">
-				{filteredItems.map((project) => (
-					<div
-						key={project.id}
-						className=" m-auto flex flex-col"
-						onClick={() =>
-							navigate(`/projects/${project.id}/${project.title}`)
-						}>
-						<div class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-xl bg-clip-border rounded-xl w-96">
-							<div class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
-								<img
-									className="object-fit absolute scale-[1.30]"
-									src={project.imageLink}
-									alt="card-image"
-								/>
-							</div>
-							<div class="p-6">
-								<h5 class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-									{project.title}
-								</h5>
-								<p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-									{project.location}
-								</p>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</>
-	);
+  return (
+    <>
+      <SEO title="Projects" path="/projects" description="Explore Chequers9 architecture and interior design projects across Kolhapur, Pune, Sindhudurg and Maharashtra." />
+      <header className="page-hero shell">
+        <p className="eyebrow">Selected work</p>
+        <h1>Built ideas,<br /><em>lived in.</em></h1>
+        <p className="page-intro">Architecture and interiors shaped by place, light and the people who inhabit them.</p>
+      </header>
+      <section className="projects-index shell" aria-labelledby="project-filter-label">
+        <div className="project-filters" role="group" aria-labelledby="project-filter-label">
+          <span id="project-filter-label" className="sr-only">Filter projects</span>
+          {filters.map((item) => (
+            <button key={item.id} type="button" className={filter === item.id ? "is-active" : ""} aria-pressed={filter === item.id} onClick={() => setFilter(item.id)}>
+              {item.label}
+            </button>
+          ))}
+        </div>
+        <div className="project-grid">
+          {visibleProjects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} priority={index < 2} />)}
+        </div>
+      </section>
+      <CTA />
+    </>
+  );
 }
-
-export default Projects;

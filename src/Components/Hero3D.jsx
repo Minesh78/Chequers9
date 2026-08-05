@@ -81,7 +81,7 @@ function ConstructionLines({ reduced }) {
 	);
 }
 
-function LogoSculpture({ reduced, motionReduced }) {
+function LogoSculpture({ reduced }) {
 	const sculpture = useRef();
 	const core = useRef();
 	const pointerTarget = useRef({ x: 0, y: 0 });
@@ -91,7 +91,7 @@ function LogoSculpture({ reduced, motionReduced }) {
 	const restingRotationY = 0.22;
 
 	useEffect(() => {
-		if (reduced || motionReduced) return undefined;
+		if (reduced) return undefined;
 		const trackPointer = (event) => {
 			pointerTarget.current.x = (event.clientX / window.innerWidth) * 2 - 1;
 			pointerTarget.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -106,11 +106,10 @@ function LogoSculpture({ reduced, motionReduced }) {
 			window.removeEventListener('pointermove', trackPointer);
 			window.removeEventListener('pointerleave', resetPointer);
 		};
-	}, [motionReduced, reduced]);
+	}, [reduced]);
 
 	useFrame((state, delta) => {
 		if (!sculpture.current || !core.current) return;
-		if (motionReduced) return;
 		const scroll = Math.min(
 			window.scrollY / Math.max(window.innerHeight, 1),
 			1.2,
@@ -188,17 +187,15 @@ function LogoSculpture({ reduced, motionReduced }) {
 	);
 }
 
-export default function Hero3D({ motionReduced = false }) {
-	const reduced =
-		motionReduced ||
-		shouldUseReducedHero3D({
-			mobile: window.matchMedia('(max-width: 767px)').matches,
-			hardwareConcurrency: navigator.hardwareConcurrency,
-		});
+export default function Hero3D() {
+	const reduced = shouldUseReducedHero3D({
+		mobile: window.matchMedia('(max-width: 767px)').matches,
+		hardwareConcurrency: navigator.hardwareConcurrency,
+	});
 	return (
 		<div className='hero-canvas' aria-hidden='true'>
 			<Canvas
-				frameloop={motionReduced ? 'demand' : 'always'}
+				frameloop='always'
 				dpr={reduced ? [0.75, 1] : [1, 1.5]}
 				camera={{
 					position: [0, 0, reduced ? 5.7 : 5.3],
@@ -221,7 +218,7 @@ export default function Hero3D({ motionReduced = false }) {
 					color='#fff4d4'
 					distance={7}
 				/>
-				<LogoSculpture reduced={reduced} motionReduced={motionReduced} />
+				<LogoSculpture reduced={reduced} />
 			</Canvas>
 		</div>
 	);

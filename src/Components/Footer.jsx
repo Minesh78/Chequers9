@@ -1,4 +1,5 @@
 import Brand from "./Brand";
+import SocialLinks from "./SocialLinks";
 import { serviceTitles, site } from "../content/site";
 
 export default function Footer() {
@@ -13,6 +14,10 @@ export default function Footer() {
         <div>
           <p className="eyebrow">Enquiries</p>
           <a href={site.phoneHref}>{site.phoneDisplay}</a>
+        </div>
+        <div className="footer-socials">
+          <p className="eyebrow">Follow</p>
+          <SocialLinks />
         </div>
         <div className="footer-meta">
           <p>{serviceTitles.join(" · ")}</p>

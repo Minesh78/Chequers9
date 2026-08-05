@@ -8,6 +8,20 @@ export const site = {
 	phoneHref: 'tel:+919922954436',
 	whatsappHref: 'https://wa.me/919922954436',
 	website: 'https://www.chequers9.com',
+	socials: [
+		{
+			name: 'Instagram',
+			handle: '@chequers9architects',
+			href: 'https://www.instagram.com/chequers9architects/',
+			icon: 'instagram',
+		},
+		{
+			name: 'YouTube',
+			handle: '@chequers9architects879',
+			href: 'https://www.youtube.com/@chequers9architects879',
+			icon: 'youtube',
+		},
+	],
 	navigation: [
 		{ label: 'Home', href: '/', shortLabel: 'Home' },
 		{ label: 'Studio', href: '/about', shortLabel: 'Studio' },

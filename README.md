@@ -89,6 +89,7 @@ Edit `src/content/site.js` to change:
 
 - studio name and description;
 - location, phone number, website, and WhatsApp link;
+- Instagram and YouTube handles and profile URLs;
 - navigation labels;
 - service descriptions; and
 - studio principles.
@@ -241,6 +242,7 @@ Route-level files in `src/Pages/` compose the screens. Reusable rendering behavi
 | --- | --- |
 | `Brand` | Recreates the business-card mark and wordmark consistently. |
 | `Navbar` | Desktop top navigation and thumb-reachable mobile navigation. |
+| `SocialLinks` | Renders accessible Instagram and YouTube links from centralized site content. |
 | `HeroSection` | Renders the hero copy, immediate CSS line-study placeholder, and deferred 3D import. |
 | `Hero3D` | Owns the Three.js scene, cube, continuous square frames, lights, pointer tracking, and scroll response. |
 | `ResponsiveImage` | Central AVIF/WebP picture rendering and loading policy. |

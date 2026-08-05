@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { serviceTitles, site } from "../content/site";
 import SEO from "../Components/SEO";
+import SocialLinks from "../Components/SocialLinks";
 
 const initialForm = { name: "", email: "", phone: "", projectType: "", message: "", company: "" };
 
@@ -48,6 +49,10 @@ export default function Contact() {
             <div><dt>WhatsApp</dt><dd><a href={site.whatsappHref} target="_blank" rel="noreferrer">Message the studio ↗</a></dd></div>
             <div><dt>Based in</dt><dd>{site.location}</dd></div>
           </dl>
+          <div className="contact-socials">
+            <p className="eyebrow">Follow the studio</p>
+            <SocialLinks compact />
+          </div>
         </div>
         <form className="contact-form" onSubmit={submit}>
           <div className="form-row">

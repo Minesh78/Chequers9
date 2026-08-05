@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run generate:site-assets && vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "generate:site-assets": "node scripts/generate-site-assets.mjs && node scripts/generate-sitemap.mjs",
     "test:hero": "node --test scripts/hero-capability.test.mjs"
   },
   "dependencies": {

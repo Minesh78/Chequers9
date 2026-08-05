@@ -1,24 +1,36 @@
-import React from 'react'
+import EditorialSection from "../Components/EditorialSection";
+import CTA from "../Components/CTA";
+import SEO from "../Components/SEO";
+import { site, studioPrinciples } from "../content/site";
 
-
-function About() {
+export default function About() {
   return (
-    < > 
-        <section className='md:w-[60%] w-[90%] flex flex-col m-auto mt-28 gap-8 text-base md:text-xl'>
-       <p className="indent-8 text-left"> <span className='text-xl md:text-3xl '>We</span>, Chequer9 Architectural Design Studio, established in 2018, at Kolhapur (Maharashtra), to illuminate the path of harmonious spaces. We are a firm specializing in both Architectural and Interior projects, where artistry meets environmental responsibility. Our foundation lies in the belief that thoughtful lighting enhances not just aesthetics, but the very essence of the built environment. We foster healthy relationships with the natural world, weaving its elements into our designs to create spaces that breathe life. In an era of rapid urbanization and expanding rural establishments, we recognize the urgency for sustainable solutions. </p>
+    <>
+      <SEO title="Studio" path="/about" description={`Meet ${site.legalName}, a thoughtful architecture and interior design practice based in ${site.location}.`} />
+      <header className="page-hero page-hero--studio shell">
+        <p className="eyebrow">The studio</p>
+        <h1>Making space<br />for <em>life.</em></h1>
+        <p className="page-intro">Chequers9 is an architecture and interior design practice based in Kolhapur, Maharashtra.</p>
+      </header>
 
+      <EditorialSection eyebrow="Our point of view" title={<>Built form in<br />conversation with nature.</>} dark>
+        <p>We create harmonious spaces where artistry meets environmental responsibility. Our work begins with the belief that thoughtful light, honest material and a sensitive response to place can enrich everyday life.</p>
+        <p>Across urban homes and rural settings, we seek a careful balance between architectural form and environmental considerations—working closely with our clients to make each space distinctly theirs.</p>
+      </EditorialSection>
 
-       <p className="indent-8 text-left">We strive to achieve a delicate balance between architectural form and responsive environmental considerations. Our designs are not merely structures, but living testaments to the possibility of harmonious growth where humanity thrives in concert with nature. Driven by a deep passion for design and a commitment to environmental stewardship, we collaborate closely with our clients to craft spaces that enrich their lives. Whether it's a bustling urban metropolis or a serene rural retreat, we bring vision and expertise to every project, ensuring each element reflects our core values:</p>
-
-       <p><span className='font-medium'>• Thoughtful Lighting</span>: We harness the power of light to define space, evoke emotion, and promote well-being.</p>
-
-       <p><span className='font-medium'>• Sustainable Design</span>: We prioritize the responsible use of resources and the integration of environmentally sensitive practices.</p>
-
-      <p><span className='font-medium'>• Harmonious Living</span>: We design spaces that foster connection with nature and nurture the lives of those who inhabit them.</p>
-
+      <section className="principles shell">
+        <p className="eyebrow">What guides us</p>
+        <div className="principle-grid">
+          {studioPrinciples.map((principle, index) => (
+            <article key={principle.title}>
+              <span>0{index + 1}</span>
+              <h2>{principle.title}</h2>
+              <p>{principle.text}</p>
+            </article>
+          ))}
+        </div>
       </section>
+      <CTA title="Bring us the place. We’ll find its possibilities." />
     </>
-  )
+  );
 }
-
-export default About

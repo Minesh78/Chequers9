@@ -199,7 +199,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .hero-bottom > p { max-width: 300px; font-size: .88rem; }
   .hero-bottom .text-link { margin-top: 28px; }
   .hero-scroll { display: none; }
-  .hero-canvas { inset: 20% -38% 15% 28%; opacity: .6; }
+  .hero-canvas { inset: 20% -38% 15% 28%; opacity: .82; }
   .hero-line-study { inset: 25% -16% 22% 45%; }
   .section-heading, .section-heading--compact, .editorial-grid, .cta-inner { display: block; }
   .section-heading .eyebrow, .editorial-grid > .eyebrow, .cta-inner > .eyebrow { margin-bottom: 42px; }

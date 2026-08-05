@@ -1,7 +1,10 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { shouldUseReducedHero3D } from '../utils/heroCapability';
+import {
+	getHero3DDpr,
+	shouldUseReducedHero3D,
+} from '../utils/heroCapability';
 
 function SquareFrame({ size, depth, rotation, opacity }) {
 	const rail = 0.032;
@@ -51,8 +54,8 @@ function SquareFrame({ size, depth, rotation, opacity }) {
 function ConstructionLines({ reduced }) {
 	const geometry = useMemo(() => {
 		const vertices = [];
-		const runs = reduced ? 5 : 9;
-		const steps = reduced ? 18 : 34;
+		const runs = reduced ? 7 : 9;
+		const steps = reduced ? 26 : 34;
 		for (let run = 0; run < runs; run += 1) {
 			const offset = (run - (runs - 1) / 2) * 0.16;
 			for (let step = 0; step < steps; step += 1) {
@@ -86,7 +89,7 @@ function LogoSculpture({ reduced }) {
 	const core = useRef();
 	const pointerTarget = useRef({ x: 0, y: 0 });
 	const { viewport } = useThree();
-	const frameCount = reduced ? 5 : 9;
+	const frameCount = reduced ? 7 : 9;
 	const baseScale = reduced ? 0.66 : 0.76;
 	const restingRotationY = 0.22;
 
@@ -188,21 +191,22 @@ function LogoSculpture({ reduced }) {
 }
 
 export default function Hero3D() {
+	const mobile = window.matchMedia('(max-width: 767px)').matches;
 	const reduced = shouldUseReducedHero3D({
-		mobile: window.matchMedia('(max-width: 767px)').matches,
 		hardwareConcurrency: navigator.hardwareConcurrency,
 	});
+	const dpr = getHero3DDpr({ mobile, reduced });
 	return (
 		<div className='hero-canvas' aria-hidden='true'>
 			<Canvas
 				frameloop='always'
-				dpr={reduced ? [0.75, 1] : [1, 1.5]}
+				dpr={dpr}
 				camera={{
 					position: [0, 0, reduced ? 5.7 : 5.3],
 					fov: reduced ? 50 : 42,
 				}}
 				gl={{
-					antialias: !reduced,
+					antialias: true,
 					alpha: true,
 					powerPreference: reduced ? 'low-power' : 'high-performance',
 				}}>

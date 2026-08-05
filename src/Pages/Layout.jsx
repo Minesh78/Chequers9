@@ -1,16 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from '../Components/Navbar'
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import ScrollToTop from "../Components/ScrollToTop";
 
-const Layout = () => {
+export default function Layout() {
   return (
     <>
-        <Navbar />
-        
-        <Outlet />         
-       
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <ScrollToTop />
+      <Navbar />
+      <main id="main-content"><Outlet /></main>
+      <Footer />
     </>
-  )
+  );
 }
-
-export default Layout
